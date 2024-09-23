@@ -1,0 +1,62 @@
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.avatar {
+  background-image: url("./assets/avatar.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 1px solid #9999;
+  cursor: pointer;
+  position: relative;
+  --black: black;
+  --white: white;
+}
+
+.avatar::after,
+.avatar::before {
+  --scale: 0;
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100%) scale(var(--scale));
+}
+
+.avatar::before {
+  color: var(--white);
+  content: attr(data-tooltip);
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 10px;
+  border-radius: 5px;
+  width: 120px;
+  text-align: center;
+  transition: transform 0.2s;
+  background: var(--black);
+}
+
+.avatar:hover::before,
+.avatar:hover::after {
+  --scale: 1;
+}
+
+.avatar::after {
+  content: "";
+  border: 10px solid transparent;
+  border-top-color: black;
+  top: 5px;
+  transition: transform 0.2s;
+}

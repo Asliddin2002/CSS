@@ -1,0 +1,101 @@
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+  --primary-light: 200, 100%, 91%;
+  --primary-dark: 200, 100%, 6%;
+  --primary: 200, 100%, 50%;
+  --white: white;
+}
+
+body {
+  margin: 0;
+}
+.main {
+  background: url("./assets/bg-image2.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-container {
+  --color: hsl(var(--primary-dark), 0.7);
+  background-color: hsl(var(--primary-dark), 0.6);
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px 0 var(--color);
+  width: 80%;
+  max-width: 550px;
+}
+
+.form-title {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  color: var(--white);
+  font-size: 30px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 20px;
+}
+
+form .input-group {
+  display: flex;
+  flex-direction: column;
+}
+form .input-group input {
+  padding: 12px;
+  font-size: 18px;
+  color: var(--white);
+  outline: none;
+  border: none;
+  background-color: hsl(var(--primary-light), 0.2);
+  border-radius: 5px;
+  margin: 3px 0;
+}
+form .input-group input:focus {
+  box-shadow: 0 0 0 1px hsl(var(--primary));
+}
+form .input-group label {
+  color: var(--white);
+  font-size: 15px;
+}
+form .input-group .input-message {
+  font-size: 14px;
+}
+.success {
+  color: green;
+}
+.error {
+  color: red;
+}
+form button {
+  outline: none;
+  border: none;
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: hsl(var(--primary-dark), 0.5);
+  color: var(--white);
+  transition: background-color 0.3s ease;
+  box-shadow: 0 0 0 1px hsl(var(--primary));
+  margin-top: 20px;
+}
+
+form button:hover {
+  background-color: hsl(var(--primary-dark), 0.9);
+}

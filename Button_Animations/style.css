@@ -1,0 +1,119 @@
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+.button-group {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  align-items: center;
+  justify-content: center;
+}
+button {
+  --bg-color: rgb(193, 205, 197);
+  --bg-slider: blue;
+  --border-size: 3px;
+
+  background-color: var(--bg-color);
+  padding: 20px 50px;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  cursor: pointer;
+  position: relative;
+  color: white;
+}
+/* Border pop */
+.border-pop {
+  transition: background-color, 0.4s ease;
+}
+.border-pop::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: var(--border-size) solid var(--bg-slider);
+  transition: top, bottom, left, right, 0.4s ease;
+  z-index: -1;
+}
+.border-pop:hover,
+.border-pop:focus {
+  background: var(--bg-slider);
+}
+.border-pop:hover::before,
+.border-pop:focus::before {
+  top: calc(var(--border-size) * -2);
+  left: calc(var(--border-size) * -2);
+  bottom: calc(var(--border-size) * -2);
+  right: calc(var(--border-size) * -2);
+}
+/* bg-slide */
+
+.bg-slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--bg-slider);
+  transform: scaleX(0);
+  transition: transform, 0.5s ease-in-out;
+  z-index: -1;
+  transform-origin: left;
+}
+.bg-slide {
+  z-index: 1;
+}
+.bg-slide:hover::before,
+.bg-slide:focus::before {
+  transform: scaleX(1);
+}
+/* bg-cirlce */
+.bg-circle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  scale: 1.5;
+  border-radius: 50%;
+  transition: scale, 0.4s ease;
+  background: var(--bg-color);
+}
+.bg-circle {
+  z-index: 1;
+  overflow: hidden;
+  background-color: var(--bg-slider);
+}
+.bg-circle:hover::before,
+.bg-circle:focus::before {
+  scale: 0;
+}
+
+/* bg-underline */
+.bg-underline::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--border-size);
+  background-color: var(--bg-slider);
+  transform: scaleX(0);
+  transition: transform, 0.4s ease;
+}
+.bg-underline:hover::before,
+.bg-underline:focus::before {
+  transform: scaleX(1);
+}
